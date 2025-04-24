@@ -30,3 +30,8 @@
          src: /tmp/wordpress.tar.gz
          dest: /var/www/html/
          remote_src: yes
+
+    - name: Copy files
+      become: yes
+      shell: |
+         cp /var/www/html/wordpress /var/www/html
