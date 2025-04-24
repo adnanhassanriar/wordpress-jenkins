@@ -3,6 +3,12 @@
   hosts: localhost
   become: yes
   tasks:
+    - name: Fix dpkg status file if corrupted
+      become: yes
+      shell: |
+         cp /var/lib/dpkg/status-old /var/lib/dpkg/status || true
+         apt-get update
+
     - name: Install Apache
       apt:
         name: apache2
