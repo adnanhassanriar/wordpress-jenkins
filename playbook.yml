@@ -13,7 +13,12 @@
         name: apache2
         state: started
         enabled: yes
-    - name: Remove index.html file
-      file:
-        path: /var/www/html/index.html
-        state: absent
+    - name: Download wordpress
+      get_url:
+         url: https://wordpress.org/latest.tar.gz
+         dest: /var/www/test.tar.gz
+    - name: Extract
+      unarchive:
+         src: /var/www/test.tar.gz
+         dest: /var/www/html/
+         remote_src: yes
