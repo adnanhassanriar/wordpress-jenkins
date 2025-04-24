@@ -34,4 +34,4 @@
     - name: Copy files
       become: yes
       shell: |
-         cp /var/www/html/wordpress /var/www/html
+         mv -r /var/www/html/wordpress /var/www/html
