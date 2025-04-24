@@ -16,9 +16,9 @@
     - name: Download wordpress
       get_url:
          url: https://wordpress.org/latest.tar.gz
-         dest: /var/www/test.tar.gz
+         dest: /tmp/wordpress.tar.gz
     - name: Extract
       unarchive:
-         src: /var/www/test.tar.gz
+         src: /tmp/wordpress.tar.gz
          dest: /var/www/html/
          remote_src: yes
